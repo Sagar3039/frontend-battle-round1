@@ -35,7 +35,7 @@ const LoaderAnimation = () => {
           </div>
           
           <h1 className="text-3xl font-bold text-gradient animate-pulse-slow">
-            Elegant Pro Design
+            Sagar's Portfolio
           </h1>
         </div>
 
@@ -51,7 +51,7 @@ const LoaderAnimation = () => {
 
         {/* Loading Text */}
         <p className="text-muted-foreground animate-pulse">
-          Loading amazing experiences... {progress}%
+          Loading portfolio... {progress}%
         </p>
 
         {/* Floating Particles */}

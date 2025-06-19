@@ -45,6 +45,27 @@ const Index = () => {
     setIsMenuOpen(false);
   };
 
+  const downloadCV = () => {
+    // Create a simple CV download functionality
+    const link = document.createElement('a');
+    link.href = '#'; // In a real app, this would be a CV file URL
+    link.download = 'Sagar_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    alert('CV download functionality would work here with a real CV file!');
+  };
+
+  const openSocialLink = (platform: string) => {
+    const urls = {
+      github: 'https://github.com',
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://twitter.com',
+      email: 'mailto:sagar@example.com'
+    };
+    window.open(urls[platform as keyof typeof urls], '_blank');
+  };
+
   if (isLoading) {
     return <LoaderAnimation />;
   }
@@ -55,7 +76,7 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="text-2xl font-bold text-gradient">
-            Elegant Pro Design
+            Sagar's Portfolio
           </div>
           
           {/* Desktop Navigation */}
@@ -117,7 +138,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <section id="home" className="pt-20">
-        <HeroSection />
+        <HeroSection onDownloadCV={downloadCV} />
       </section>
 
       {/* Projects Section */}
@@ -144,27 +165,27 @@ const Index = () => {
       <footer className="border-t border-border py-8">
         <div className="container mx-auto px-4 text-center">
           <div className="text-2xl font-bold text-gradient mb-4">
-            Elegant Pro Design
+            Sagar's Portfolio
           </div>
           <p className="text-muted-foreground mb-4">
             Creating beautiful, functional designs that make an impact.
           </p>
           <div className="flex justify-center space-x-6 mb-4">
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" onClick={() => openSocialLink('github')}>
               <Github className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" onClick={() => openSocialLink('linkedin')}>
               <Linkedin className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" onClick={() => openSocialLink('twitter')}>
               <Twitter className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" onClick={() => openSocialLink('email')}>
               <Mail className="h-4 w-4" />
             </Button>
           </div>
           <p className="text-sm text-muted-foreground">
-            © 2024 Elegant Pro Design. All rights reserved.
+            © 2024 Sagar's Portfolio. All rights reserved.
           </p>
         </div>
       </footer>

@@ -3,7 +3,11 @@ import { useState, useEffect } from 'react';
 import { ArrowRight, Download, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  onDownloadCV: () => void;
+}
+
+const HeroSection = ({ onDownloadCV }: HeroSectionProps) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -61,16 +65,16 @@ const HeroSection = () => {
       <div className="relative z-20 text-center px-4 max-w-5xl mx-auto">
         <div className="animate-fade-in">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
-            <span className="text-gradient">Creative</span>
+            <span className="text-gradient">Hi, I'm</span>
             <br />
-            <span className="text-foreground">Frontend</span>
+            <span className="text-foreground">Sagar</span>
             <br />
-            <span className="text-gradient">Developer</span>
+            <span className="text-gradient">Frontend Developer</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-            Crafting beautiful, interactive experiences with modern web technologies. 
-            Specializing in animations, UI/UX design, and creative frontend solutions.
+            I create stunning web experiences with modern technologies. 
+            Passionate about clean code, beautiful design, and user-centered development.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -87,15 +91,16 @@ const HeroSection = () => {
               size="lg" 
               variant="outline" 
               className="px-8 py-4 rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
+              onClick={onDownloadCV}
             >
               <Download className="mr-2 h-5 w-5" />
-              Download CV
+              Download Resume
             </Button>
           </div>
 
           {/* Skills Badges */}
           <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {['React', 'TypeScript', 'Three.js', 'GSAP', 'Tailwind CSS', 'Next.js'].map((skill, index) => (
+            {['React', 'TypeScript', 'Next.js', 'Node.js', 'Tailwind CSS', 'MongoDB'].map((skill, index) => (
               <span
                 key={skill}
                 className="px-4 py-2 bg-secondary/50 rounded-full text-sm font-medium glass-effect hover:bg-primary/20 transition-colors cursor-pointer"

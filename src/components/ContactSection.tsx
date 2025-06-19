@@ -32,7 +32,7 @@ const ContactSection = () => {
     setTimeout(() => {
       toast({
         title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        description: "Thank you for reaching out. I'll get back to you soon!",
       });
       setFormData({ name: '', email: '', message: '' });
       setIsSubmitting(false);
@@ -43,8 +43,8 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "hello@elegantprodesign.com",
-      href: "mailto:hello@elegantprodesign.com"
+      content: "sagar.dev@example.com",
+      href: "mailto:sagar.dev@example.com"
     },
     {
       icon: Phone,
@@ -61,20 +61,28 @@ const ContactSection = () => {
   ];
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "Github" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" }
+    { icon: Github, href: "https://github.com", label: "Github" },
+    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+    { icon: Twitter, href: "https://twitter.com", label: "Twitter" }
   ];
+
+  const handleSocialClick = (href: string, label: string) => {
+    if (href === "#") {
+      alert(`${label} profile would open here!`);
+    } else {
+      window.open(href, '_blank');
+    }
+  };
 
   return (
     <div className="bg-gradient-to-br from-background to-secondary/10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-6">
-            Let's <span className="text-gradient">Connect</span>
+            Let's <span className="text-gradient">Work Together</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to bring your ideas to life? I'd love to hear about your project and discuss how we can work together.
+            Have a project in mind? I'd love to hear about it! Let's discuss how we can bring your ideas to life.
           </p>
         </div>
 
@@ -156,9 +164,8 @@ const ContactSection = () => {
             <div>
               <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                I'm always excited to take on new challenges and collaborate on innovative projects. 
-                Whether you need a complete website overhaul or want to add some creative flair to your existing site, 
-                let's discuss how I can help bring your vision to life.
+                I'm always excited to work on new projects and collaborate with talented people. 
+                Whether you need a website, web application, or just want to say hello, feel free to reach out!
               </p>
             </div>
 
@@ -168,8 +175,9 @@ const ContactSection = () => {
                 <Card 
                   key={index}
                   className="p-6 bg-card border-border hover:border-primary/50 transition-colors cursor-pointer"
+                  onClick={() => info.href !== "#" && window.open(info.href)}
                 >
-                  <a href={info.href} className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-4">
                     <div className="p-3 bg-primary/10 rounded-lg">
                       <info.icon className="h-6 w-6 text-primary" />
                     </div>
@@ -177,14 +185,14 @@ const ContactSection = () => {
                       <h4 className="font-medium">{info.title}</h4>
                       <p className="text-muted-foreground">{info.content}</p>
                     </div>
-                  </a>
+                  </div>
                 </Card>
               ))}
             </div>
 
             {/* Social Links */}
             <div className="pt-8">
-              <h4 className="font-medium mb-4">Follow Me</h4>
+              <h4 className="font-medium mb-4">Connect With Me</h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <Button
@@ -192,11 +200,9 @@ const ContactSection = () => {
                     variant="outline"
                     size="sm"
                     className="rounded-full w-12 h-12 p-0 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
-                    asChild
+                    onClick={() => handleSocialClick(social.href, social.label)}
                   >
-                    <a href={social.href} aria-label={social.label}>
-                      <social.icon className="h-5 w-5" />
-                    </a>
+                    <social.icon className="h-5 w-5" />
                   </Button>
                 ))}
               </div>
@@ -207,8 +213,8 @@ const ContactSection = () => {
               <div className="flex items-center space-x-3">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                 <div>
-                  <h4 className="font-medium text-green-600 dark:text-green-400">Available for Projects</h4>
-                  <p className="text-sm text-muted-foreground">Currently accepting new client work</p>
+                  <h4 className="font-medium text-green-600 dark:text-green-400">Available for Work</h4>
+                  <p className="text-sm text-muted-foreground">Open to new opportunities and collaborations</p>
                 </div>
               </div>
             </Card>
