@@ -21,41 +21,54 @@ const LoaderAnimation = () => {
   return (
     <div className="fixed inset-0 bg-background flex items-center justify-center z-50">
       <div className="text-center">
-        {/* Simple elegant logo */}
-        <div className="relative mb-12">
-          <div className="w-16 h-16 mx-auto mb-6 relative">
-            <div className="absolute inset-0 rounded-full border border-primary/30"></div>
+        {/* Animated Logo */}
+        <div className="relative mb-8">
+          <div className="w-20 h-20 mx-auto mb-4 relative">
+            <div className="absolute inset-0 rounded-full border-4 border-primary/20"></div>
             <div 
-              className="absolute inset-0 rounded-full border border-primary border-t-transparent animate-spin"
-              style={{ animationDuration: '2s' }}
+              className="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-spin"
+              style={{ animationDuration: '1s' }}
             ></div>
-            <div className="absolute inset-3 rounded-full bg-primary/10 flex items-center justify-center">
-              <div className="w-2 h-2 rounded-full bg-primary"></div>
+            <div className="absolute inset-2 rounded-full bg-primary/20 flex items-center justify-center">
+              <div className="w-4 h-4 rounded-full bg-primary animate-pulse"></div>
             </div>
           </div>
           
-          <h1 className="text-2xl font-semibold text-foreground mb-2">
+          <h1 className="text-3xl font-bold text-gradient animate-pulse-slow">
             Elegant Pro Design
           </h1>
-          <p className="text-sm text-muted-foreground">
-            Creative Frontend Developer
-          </p>
         </div>
 
-        {/* Clean progress bar */}
-        <div className="w-80 mx-auto mb-6">
-          <div className="h-px bg-border rounded-full overflow-hidden">
+        {/* Progress Bar */}
+        <div className="w-64 mx-auto mb-4">
+          <div className="h-1 bg-secondary rounded-full overflow-hidden">
             <div 
-              className="h-full bg-primary transition-all duration-300 rounded-full"
+              className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
         </div>
 
-        {/* Simple loading text */}
-        <p className="text-sm text-muted-foreground">
-          {progress}%
+        {/* Loading Text */}
+        <p className="text-muted-foreground animate-pulse">
+          Loading amazing experiences... {progress}%
         </p>
+
+        {/* Floating Particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-primary/30 rounded-full animate-float"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${3 + Math.random() * 3}s`
+              }}
+            ></div>
+          ))}
+        </div>
       </div>
     </div>
   );
