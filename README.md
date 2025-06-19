@@ -1,73 +1,70 @@
-# Welcome to your Lovable project
+🚀 Frontend Battle – Round 1 Submission
+by Sagar Karmakar
 
-## Project info
+🌐 Live URL
+https://lovable.dev/projects/e435aba0-9535-4893-b9fc-57a3db1fd5ce
 
-**URL**: https://lovable.dev/projects/e435aba0-9535-4893-b9fc-57a3db1fd5ce
+📁 Project Overview
+This project is built for the Frontend Battle (Round 1: Replicate & Innovate).
+The goal was to accurately replicate the provided assets and enhance the experience with subtle innovations, responsiveness, and clean implementation.
 
-## How can I edit this code?
+🛠 Tech Stack
+React + TypeScript
 
-There are several ways of editing your application.
+Vite
 
-**Use Lovable**
+Tailwind CSS
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e435aba0-9535-4893-b9fc-57a3db1fd5ce) and start prompting.
+shadcn/ui
 
-Changes made via Lovable will be committed automatically to this repo.
+Lovable (used as a collaborative prompt-based enhancement tool)
 
-**Use your preferred IDE**
+💻 How to Run Locally
+Prerequisites: Node.js + npm
+Recommended: VS Code or any modern IDE
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+sh
+Copy
+Edit
+# Clone this repo
+git clone <YOUR_GIT_REPO_URL>
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
+# Move into the directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
-```
+✏️ Ways to Edit
+You can work with this project in any of the following ways:
 
-**Edit a file directly in GitHub**
+Locally via your favorite IDE (recommended)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Online editors like GitHub or GitHub Codespaces
 
-**Use GitHub Codespaces**
+Prompt-enhanced UI editor (used selectively for refinement and quick edits)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+🚀 Deployment
+Deployed on a modern frontend hosting platform.
+You can fork and deploy it anywhere (Netlify, Vercel, GitHub Pages, etc.).
 
-## What technologies are used for this project?
+🌒 Features Implemented
+Fully responsive layout
 
-This project is built with:
+Light/Dark mode toggle
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Smooth loader animation (from provided assets)
 
-## How can I deploy this project?
+Scroll-linked navigation bar
 
-Simply open [Lovable](https://lovable.dev/projects/e435aba0-9535-4893-b9fc-57a3db1fd5ce) and click on Share -> Publish.
+6+ feature integrations
 
-## Can I connect a custom domain to my Lovable project?
+Subtle enhancements & micro-interactions
 
-Yes, you can!
+🤖 AI Tools Used
+ChatGPT – for idea refinement & code assistance
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Prompt-enhanced tools – for layout structuring and quick fixes (non-intrusive)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
