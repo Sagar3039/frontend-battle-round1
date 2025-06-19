@@ -2,7 +2,7 @@
 by Sagar Karmakar
 
 🌐 Live URL
-https://lovable.dev/projects/e435aba0-9535-4893-b9fc-57a3db1fd5ce
+https://frontend-battle-round1.netlify.app/
 
 📁 Project Overview
 This project is built for the Frontend Battle (Round 1: Replicate & Innovate).
