@@ -1,20 +1,8 @@
 
-import { useState, useEffect } from 'react';
-import { ArrowRight, Download, Play } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const HeroSection = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   const scrollToProjects = () => {
     const element = document.getElementById('projects');
     if (element) {
@@ -23,101 +11,70 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20 animate-gradient"></div>
+    <div className="relative min-h-screen flex items-center justify-center">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-secondary/5"></div>
       
-      {/* Floating Geometric Shapes */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute opacity-10"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              transform: `rotate(${Math.random() * 360}deg)`,
-              animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 2}s`
-            }}
-          >
-            {i % 3 === 0 && <div className="w-8 h-8 border-2 border-primary"></div>}
-            {i % 3 === 1 && <div className="w-6 h-6 rounded-full bg-accent"></div>}
-            {i % 3 === 2 && <div className="w-4 h-8 bg-primary transform rotate-45"></div>}
-          </div>
-        ))}
-      </div>
-
-      {/* Mouse Follower Effect */}
-      <div
-        className="fixed w-64 h-64 rounded-full bg-primary/5 blur-3xl pointer-events-none z-10 transition-all duration-1000"
-        style={{
-          left: mousePosition.x - 128,
-          top: mousePosition.y - 128,
-        }}
-      ></div>
-
       {/* Main Content */}
-      <div className="relative z-20 text-center px-4 max-w-5xl mx-auto">
-        <div className="animate-fade-in">
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
-            <span className="text-gradient">Creative</span>
-            <br />
-            <span className="text-foreground">Frontend</span>
-            <br />
-            <span className="text-gradient">Developer</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-            Crafting beautiful, interactive experiences with modern web technologies. 
-            Specializing in animations, UI/UX design, and creative frontend solutions.
-          </p>
+      <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
+        <div className="space-y-8">
+          {/* Clean typography */}
+          <div className="space-y-4">
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              <span className="text-foreground">Creative</span>
+              <br />
+              <span className="text-primary">Frontend</span>
+              <br />
+              <span className="text-foreground">Developer</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Crafting beautiful, interactive web experiences with modern technologies and clean design principles.
+            </p>
+          </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          {/* Clean buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg" 
-              className="group bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
+              className="px-8 py-6 text-base"
               onClick={scrollToProjects}
             >
               View My Work
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             
             <Button 
               size="lg" 
               variant="outline" 
-              className="px-8 py-4 rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
+              className="px-8 py-6 text-base"
             >
               <Download className="mr-2 h-5 w-5" />
               Download CV
             </Button>
           </div>
 
-          {/* Skills Badges */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {['React', 'TypeScript', 'Three.js', 'GSAP', 'Tailwind CSS', 'Next.js'].map((skill, index) => (
+          {/* Simple skills display */}
+          <div className="flex flex-wrap justify-center gap-3 pt-8">
+            {['React', 'TypeScript', 'Three.js', 'GSAP', 'Tailwind CSS', 'Next.js'].map((skill) => (
               <span
                 key={skill}
-                className="px-4 py-2 bg-secondary/50 rounded-full text-sm font-medium glass-effect hover:bg-primary/20 transition-colors cursor-pointer"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="px-4 py-2 bg-secondary/20 border border-border rounded-full text-sm font-medium text-foreground/80 hover:bg-secondary/30 transition-colors"
               >
                 {skill}
               </span>
             ))}
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="animate-bounce-slow">
-            <div className="w-6 h-10 border-2 border-primary rounded-full mx-auto flex justify-center">
-              <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
-            </div>
-            <p className="text-sm text-muted-foreground mt-2">Scroll to explore</p>
+          {/* Minimal scroll indicator */}
+          <div className="pt-12">
+            <div className="w-px h-8 bg-primary/50 mx-auto"></div>
+            <p className="text-xs text-muted-foreground mt-3 uppercase tracking-wider">
+              Scroll Down
+            </p>
           </div>
         </div>
       </div>
-
-      {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent"></div>
     </div>
   );
 };
